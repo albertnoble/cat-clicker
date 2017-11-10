@@ -3,25 +3,56 @@
 <script src="js/libs/jquery.min.js"></script>
 <link rel="stylesheet" href="css/style.css">
 
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 </head>
 <body>
 
-<div class="title">
-    <h1>Cat Clicker</h1>
-</div>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+        <ul class="catlist_tumbnail">
+            <li>
+                <img class="thumbnail" src="images/cat1.jpg">
+            </li>
+            <li>
+                <img class="thumbnail" src="images/cat2.jpg">
+            </li>
+            <li>
+                <img class="thumbnail" src="images/cat3.jpg">
+            </li>
+            <li>
+                <img class="thumbnail" src="images/cat4.jpg">
+            </li>
+            <li>
+                <img class="thumbnail" src="images/cat5.jpg">
+            </li>
+        </ul>
+    </div>
 
-<div class="cat">
-    <h2 id="name1">No Name</h2>
-    <img id="cat-pic1" src="images/cat.jpg">
-    <h2 id="counter1">0</h2>
-</div>
+    <div class="col-sm-9">
+        <div class="title">
+            <h1>Cat Clicker</h1>
+        </div>
 
-<div class="cat">
-    <h2 id="name2">No name</h2>
-    <img id="cat-pic2" src="images/cat2.jpg">
-    <h2 id="counter2">0</h2>
+        <div class="cat">
+            <h2 id="name1">No Name</h2>
+            <img id="cat-pic1" src="images/cat1.jpg">
+            <h2 id="counter1">0</h2>
+        </div>
+
+        <div class="cat">
+            <h2 id="name2">No name</h2>
+            <img id="cat-pic2" src="images/cat2.jpg">
+            <h2 id="counter2">0</h2>
+        </div>
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript" src="js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
 </html>
