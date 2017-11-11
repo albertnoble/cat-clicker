@@ -1,19 +1,23 @@
-var count1 = 0
-var count2 = 0
+var count = [0,0,0,0,0];
 
-var name1 = "Bob";
-var name2 = "Dylan";
+var names = ["Bob","Dylan","Maria","Abraham","ZebroWiskey"];
 
-document.getElementById('name1').innerHTML = name1;
-document.getElementById('name2').innerHTML = name2;
+var catList = document.getElementsByClassName("thumbnail");
 
+var currentCat = 0;
+for (let i = 0; i < catList.length; i++) {
+    var cat = catList[i];
+    cat.addEventListener('click', function() {
+        document.getElementById('cat-pic').src = "images/cat"+(i+1)+".jpg";
+        document.getElementById('name').innerHTML = names[i];
+        document.getElementById('counter').innerHTML = count[i]
+        currentCat = i;
+        
+    });   
+    
+}
 
-$('#cat-pic1').click(function(e) {
-  count1 += 1;
-  document.getElementById('counter1').innerHTML = count1;
-});
-
-$('#cat-pic2').click(function(e) {
-  count2 += 1;
-  document.getElementById('counter2').innerHTML = count2;
+$('#cat-pic').click(function(e) {
+        count[currentCat] += 1;
+        document.getElementById('counter').innerHTML = count[currentCat];
 });
