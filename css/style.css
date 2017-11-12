@@ -1,11 +1,25 @@
+* {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+header {
+    padding: 25px;
+    background-color:#E6E6FA;
+}
+
+.sidenav {
+    background-color:#F0F8FF;
+}
+
 div.cat {
-    padding: 10px;dfc
+    padding: 25px;
     float: left;
     
 }
 
 img {
     height:50%;
+    border-radius: 25px;
 }
 
 ul {
