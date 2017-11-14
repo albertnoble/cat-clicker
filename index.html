@@ -10,8 +10,26 @@
 
 <div class="container-fluid">
     <header class="row content">
-        <div class="col-sm-12">
+        <div class="col-sm-10">
             <h1>Cat Clicker</h1>
+        </div>
+        <div class="col-sm-2">
+            <a id="admin" href="#">Admin</a>
+            
+            <div id="myPopup" style="min-width:250px;">
+                <form method="post">
+                    <div>
+                      <h3>Change Cat Info</h3>
+                      <label>Cats Name</label>
+                      <input type="text" name="namechange" id="namechange">
+                      <label>URL</label>
+                      <input type="text" name="urlchange" id="urlchange">
+                      <label>Number of Clicks</label>
+                      <input type="text" name="clicks" id="clicks">
+                      <input type="submit" data-inline="true" value="Log in" onclick="adminView.getFormData(this)">
+                    </div>
+                </form>
+            </div>
         </div>
     </header>
 

@@ -36,6 +36,7 @@ var octopus = {
         
         catListView.init();
         catView.init();
+        adminView.init();
     },
     
     getCurrentCat: function(){
@@ -48,6 +49,21 @@ var octopus = {
     
     setCurrentCat: function(cat){
         model.currentCat = cat;
+    },
+    
+    editCurrentCat: function(name, url, clicks){
+        var currentCat = this.getCurrentCat();
+        var cats = this.getCats();
+        cats.forEach(function(x){
+            if(currentCat.name == x.name){
+                x.name = name;
+                x.imgUrl = url;
+                x.count = clicks;
+                catView.render();
+            }
+        });
+        
+        
     },
     
     incrementCounter: function(){
@@ -77,6 +93,38 @@ var catView = {
         this.countElem.textContent = currentCat.count;
         this.catNameElem.textContent = currentCat.name;
         this.catImageElem.src = currentCat.imgUrl;
+    }
+};
+
+var adminView = {
+
+    init: function() {
+        this.catNameElem = document.getElementById('namechange');
+        this.catImageElem = document.getElementById('urlchange');
+        this.countElem = document.getElementById('clicks');
+        this.adminButton = document.getElementById('admin');
+        
+        this.adminButton.addEventListener('click', function(){
+            adminView.render();
+        });
+        this.render();
+
+        
+    },
+
+    render: function() {
+        var currentCat = octopus.getCurrentCat();
+        this.countElem.placeholder = currentCat.count;
+        this.catNameElem.placeholder = currentCat.name;
+        this.catImageElem.placeholder = currentCat.imgUrl;
+    },
+    
+    getFormData: function() {
+        var name = document.getElementById('namechange').value;
+        var url = document.getElementById('urlchange').value;
+        var clicks = document.getElementById('clicks').value;
+        alert(name+": "+url+" : "+ clicks);
+        octopus.editCurrentCat(name, url, clicks);
     }
 };
 
@@ -115,3 +163,17 @@ var catListView = {
 };
 
 octopus.init();
+var on = true;
+var showPopup = function(event) {
+        event.preventDefault();
+        if(on){
+            on = false;
+            document.getElementById('myPopup').style.display = 'block';
+        }else{
+            on = true;
+            document.getElementById('myPopup').style.display = 'none';
+        }
+        
+};
+
+document.getElementById('admin').addEventListener('click', showPopup);
