@@ -14,20 +14,19 @@ header {
 div.cat {
     padding: 25px;
     float: left;
-    
 }
 
-img {
-    height:50%;
+img#cat-pic {
     border-radius: 25px;
+    width: 100%;
 }
 
 ul {
   list-style-type: none;
 }
 
-.thumbnail {
-    padding:25px;
-    width: 200px;;
-    height: auto;
+img.smallpic {
+    width: 150px;
+    padding: 5px;
+    border-radius:10px;
 }
