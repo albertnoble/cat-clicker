@@ -54,13 +54,18 @@ var octopus = {
     editCurrentCat: function(name, url, clicks){
         var currentCat = this.getCurrentCat();
         var cats = this.getCats();
-        cats.forEach(function(x){
-            if(currentCat.name == x.name){
-                x.name = name;
-                x.imgUrl = url;
-                x.count = clicks;
+        for(var i = 0; i < cats.length; i++){
+            if(currentCat.name == model.cats[i].name){
+                model.cats[i].name = name;
+                model.cats[i].imgUrl = url;
+                model.cats[i].count = clicks;
                 catView.render();
+                catListView.render();
             }
+        }
+        
+        cats.forEach(function(x){
+           
         });
         
         
@@ -123,7 +128,6 @@ var adminView = {
         var name = document.getElementById('namechange').value;
         var url = document.getElementById('urlchange').value;
         var clicks = document.getElementById('clicks').value;
-        alert(name+": "+url+" : "+ clicks);
         octopus.editCurrentCat(name, url, clicks);
     }
 };
@@ -177,3 +181,4 @@ var showPopup = function(event) {
 };
 
 document.getElementById('admin').addEventListener('click', showPopup);
+document.getElementById('cancel').addEventListener('click', showPopup);
