@@ -1,6 +1,7 @@
 
 var model = {
     currentCat: null,
+    topCat: null,
     cats: [
         {
             count: 0,
@@ -33,14 +34,21 @@ var model = {
 var octopus = {
     init: function(){
         model.currentCat = model.cats[0];
+        model.topCat = model.cats[0];
+        
         
         catListView.init();
         catView.init();
         adminView.init();
+        topView.init();
     },
     
     getCurrentCat: function(){
         return model.currentCat;
+    },
+    
+    getTopCat: function(){
+        return model.topCat;
     },
     
     getCats: function(){
@@ -73,7 +81,12 @@ var octopus = {
     
     incrementCounter: function(){
         model.currentCat.count++;
+        if(model.currentCat.count > model.topCat.count){
+            model.topCat = model.currentCat;
+            
+        }
         catView.render();
+        topView.render();
     }
     
 };
@@ -95,6 +108,25 @@ var catView = {
 
     render: function() {
         var currentCat = octopus.getCurrentCat();
+        this.countElem.textContent = currentCat.count;
+        this.catNameElem.textContent = currentCat.name;
+        this.catImageElem.src = currentCat.imgUrl;
+    }
+};
+
+var topView = {
+
+    init: function() {
+        
+        this.catNameElem = document.getElementById('topname');
+        this.catImageElem = document.getElementById('toppic');
+        this.countElem = document.getElementById('topcount');
+
+        this.render();
+    },
+
+    render: function() {
+        var currentCat = octopus.getTopCat();
         this.countElem.textContent = currentCat.count;
         this.catNameElem.textContent = currentCat.name;
         this.catImageElem.src = currentCat.imgUrl;

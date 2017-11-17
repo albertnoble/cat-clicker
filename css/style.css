@@ -31,6 +31,10 @@ img.smallpic {
     border-radius:10px;
 }
 
+img#toppic {
+    width: 100px;
+}
+
 #myPopup {
     display: none;
     position: absolute;
